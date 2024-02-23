@@ -1,0 +1,31 @@
+<html>
+<head>
+<title></title>
+<script>
+    var path = window.location.pathname;
+    fetch(path, {
+  method: 'GET',
+  headers: {
+    'Content-Type': 'application/json'
+  }
+})
+.then(response => {
+  if (!response.ok) {
+    throw new Error('Network response was not ok');
+  }
+  return response.json();
+})
+.then(data => {
+  // 在这里使用返回的 JSON 数据进行操作
+  console.log(data);
+})
+.catch(error => {
+  // 捕获任何网络请求错误
+  console.error('There was a problem with the fetch operation: ', error);
+});
+</script>
+</head>
+<body>
+    <button>Click me</button>
+</body>
+</html>
